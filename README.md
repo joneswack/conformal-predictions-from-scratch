@@ -8,7 +8,7 @@ Why do we reimplement things from scratch? Because we want to understand the met
 
 Conformal Predictions have become a very popular way of equipping machine learning models with predictive uncertainty estimates. One reason for this is that they are model-agnostic meaning that previously trained (or even deployed) models can be enhanced with predictive uncertainties post hoc. Another advantage is that Conformal Predictions come with theoretical guarantees on how much of the future data to be predicted will actually fall inside the predictive bands (generally assuming exchangeability of the data). This may seem to good to be true, but makes a lot of sense when understanding how the predictions are "conformalized".
 
-A great list of references and tutorials can be found here:
+A great list of references and tutorials can be found here:<br />
 https://github.com/valeman/awesome-conformal-prediction
 
 ## The Structure of this Repository
@@ -17,4 +17,4 @@ The repository contains one Jupyter notebook per prediction method. One predicti
 
 Notebook Overview:
 
-- **Locally-Weighted-Conformal-Prediction**: Conformal Predictions for regression with variable uncertainty bands obtained via residual normalised scores.
+- [Locally-Weighted-Conformal-Prediction](https://github.com/joneswack/conformal-predictions-from-scratch/blob/main/notebooks/Locally-Weighted-Conformal-Prediction.ipynb): Conformal Predictions for regression with variable uncertainty bands obtained via residual normalised scores.
