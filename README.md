@@ -16,4 +16,7 @@ The repository contains one Jupyter notebook per prediction method. One predicti
 
 Notebook Overview:
 
-- [Locally-Weighted-Conformal-Prediction](https://github.com/joneswack/conformal-predictions-from-scratch/blob/main/notebooks/Locally-Weighted-Conformal-Prediction.ipynb): Conformal Predictions for regression with variable uncertainty bands obtained via residual normalised scores.
+### Regression
+
+1) [Split Conformal Prediction](https://github.com/joneswack/conformal-predictions-from-scratch/blob/main/notebooks/regression/1-Split-Conformal-Prediction.ipynb): Conformal Predictions with fixed prediction bands obtained via (the default) absolute residual scores.
+2) [Locally Weighted Conformal Prediction](https://github.com/joneswack/conformal-predictions-from-scratch/blob/main/notebooks/regression/2-Locally-Weighted-Conformal-Prediction.ipynb): Conformal Predictions with variable prediction bands obtained via residual normalised scores.
