@@ -20,3 +20,4 @@ Notebook Overview:
 
 1) [Split Conformal Prediction](https://github.com/joneswack/conformal-predictions-from-scratch/blob/main/notebooks/regression/1-Split-Conformal-Prediction.ipynb): Conformal Predictions with fixed prediction bands obtained via (the default) absolute residual scores.
 2) [Locally Weighted Conformal Prediction](https://github.com/joneswack/conformal-predictions-from-scratch/blob/main/notebooks/regression/2-Locally-Weighted-Conformal-Prediction.ipynb): Conformal Predictions with variable prediction bands obtained via residual normalised scores.
+3) [Conformal Quantile Regression (CQR)](https://github.com/joneswack/conformal-predictions-from-scratch/blob/main/notebooks/regression/3-Conformalised-Quantile-Regression.ipynb): Conformal Predictions with variable prediction bands obtained via quantile regression.
