@@ -12,9 +12,7 @@ A great list of references and tutorials on the topic can be found [here](https:
 
 ## 📝 The Structure of this Repository
 
-The repository contains one Jupyter notebook per prediction method. One prediction method means one way to obtain predictive error bars. All notebooks are located in the *notebooks* folder and new notebooks will be added over time.
-
-Notebook Overview:
+The repository contains one Jupyter notebook per conformal prediction method, i.e., one way to obtain predictive error bands. All notebooks are located in the *notebooks* folder and new notebooks will be added over time.
 
 ### 📈 Regression
 
