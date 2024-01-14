@@ -53,3 +53,52 @@ def regression_plot_with_uncertainty(
     ax.scatter(scatter_points[0], scatter_points[1], color='blue', s=5)
     ax.plot(prediction_inputs[order], mean_prediction[order], color='red', label='Prediction')
     ax.legend()
+
+def regression_plot_with_scores(
+    inputs,
+    mean_prediction,
+    prediction_bands,
+    scatter_points,
+    train_scores,
+    cal_scores,
+    test_scores,
+    separators=[0, 1.0],
+    quantile=0.95,
+    labels=[f'95% Target Coverage']
+):
+    """ Plot the regression fit with prediction intervals (on the left) and score distributions (on the right). """
+    
+    fig, ax = plt.subplot_mosaic([
+        ['left', 'upper right'],
+        ['left', 'center right'],
+        ['left', 'lower right']
+    ], figsize=(12, 4), layout="constrained")
+    
+    regression_plot_with_uncertainty(
+        ax['left'],
+        inputs,
+        mean_prediction,
+        prediction_bands,
+        scatter_points,
+        quantiles=[quantile],
+        labels=labels
+    )
+    ax['left'].set_title(r'Predictive Bands after Calibration: $\hat{\mu}(X) \pm q$' + '\nData: Train | Calibration | Test')
+    ax['left'].vlines(separators[1:-1], ymin=prediction_bands[:, 0].min(), ymax=prediction_bands[:, 1].max(), colors='black')
+    ax['left'].set_xlim(separators[0], separators[-1])
+    ax['upper right'].hist(train_scores, bins=50)
+    ax['upper right'].set_title('Training Scores (Coverage: {:.2f}%)'.format((train_scores < quantile).mean()*100))
+    ax['upper right'].sharex(ax['lower right'])
+    ax['center right'].hist(cal_scores, bins=50)
+    ax['center right'].set_title('Calibration Scores (Coverage: {:.2f}%)'.format((cal_scores < quantile).mean()*100))
+    ax['center right'].sharex(ax['lower right'])
+    ax['lower right'].hist(test_scores, bins=50)
+    ax['lower right'].set_title('Test Scores (Coverage: {:.2f}%)'.format((test_scores < quantile).mean()*100))
+    
+    plt.show()
+
+def compute_coverage(y, prediction_bands):
+    """ Computes the coverage of the prediction bands on the data y. """
+    num_points_outside = np.sum((y < prediction_bands[:,0]) | (y > prediction_bands[:,1]))
+    coverage_score = 1.0-num_points_outside/len(y)
+    return coverage_score

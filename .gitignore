@@ -6,3 +6,4 @@ pyproject.toml
 poetry.lock
 method-overview.xlsx
 ~$method-overview.xlsx
+.DS_Store
